@@ -1,0 +1,41 @@
+<div class="edit-container">
+  <form nz-form [formGroup]="validateForm" class="login-form" (ngSubmit)="_submitForm()">
+    <div nz-form-item nz-row>
+      <div nz-form-control>
+        <div class="avatar-wrapper">
+          <div class="avatar"><img src="{{imgSrc}}" alt=""></div>
+          <a (click)="openCrop()">点击选择封面</a>
+          <app-my-img-crop *ngIf="isShowCrop"
+                           (changeImg)="changeImg($event)"
+                           (closeCrop)="closeCrop($event)"
+          ></app-my-img-crop>
+        </div>
+      </div>
+    </div>
+    <div nz-form-item nz-row>
+      <div nz-form-control>
+        <nz-input formControlName="title" [nzPlaceHolder]="'标题'" [nzSize]="'large'"></nz-input>
+        <div nz-form-explain *ngIf="validateForm.controls.title.dirty&&validateForm.controls.title.hasError('required')">请输入标题</div>
+      </div>
+    </div>
+    <div nz-form-item nz-row>
+      <div nz-form-control>
+        <nz-checkbox-group formControlName="tag" [(ngModel)]="checkOptionsOne"></nz-checkbox-group>
+        <div nz-form-explain *ngIf="validateForm.controls.tag.dirty&&validateForm.controls.tag.hasError('expired')">至少选择输入一个标签</div>
+      </div>
+    </div>
+    <div nz-form-item nz-row>
+      <div nz-form-control>
+        <app-my-editor
+          [content]="content"
+          (updateContent)="updateContent($event)"
+        ></app-my-editor>
+      </div>
+    </div>
+    <div nz-form-item nz-row>
+      <div nz-form-control>
+        <button nz-button [nzSize]="'large'" [nzType]="'primary'" [disabled]="!validateForm.valid">保存</button>
+      </div>
+    </div>
+  </form>
+</div>

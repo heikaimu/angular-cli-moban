@@ -1,0 +1,17 @@
+.update-avatar-container{
+  padding: 20px;
+  background: #fff;
+  border-radius: 5px;
+  .img-wrapper{
+    width: 200px;
+    height: 200px;
+    padding: 5px;
+    margin-bottom: 20px;
+    background: #e7e7e7;
+    border: 1px solid #e7e7e7;
+    img{
+      width: 100%;
+      height: 100%;
+    }
+  }
+}

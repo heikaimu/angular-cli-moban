@@ -1,0 +1,60 @@
+<div [@fadeIn]>
+<div class="web-header">
+  <div class="header-left">
+    <a href="" class="logo">Logo</a>
+  </div>
+  <div class="header-right">
+    <nz-badge [nzCount]="99" [nzOverflowCount]="10">
+      <ng-template #content>
+        <nz-avatar nzIcon="user" nzSrc="//zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"></nz-avatar>
+      </ng-template>
+    </nz-badge>
+
+    <nz-dropdown>
+      <a class="ant-dropdown-link" nz-dropdown>
+        Hover me <i class="anticon anticon-down"></i>
+      </a>
+      <ul nz-menu>
+        <li nz-menu-item>
+          <a rel="noopener noreferrer" routerLink="/home/user/update_avatar">修改头像</a>
+        </li>
+        <li nz-menu-item>
+          <a rel="noopener noreferrer" routerLink="/login">退出登录</a>
+        </li>
+      </ul>
+    </nz-dropdown>
+  </div>
+</div>
+
+<div class="slide-bar-main-container">
+  <div class="web-slide-bar">
+    <div [ngStyle]="{'width': isCollapsed ? auto : '200px'}">
+      <button nz-button [nzType]="'primary'"
+              (click)="toggleCollapsed()"
+              style="margin: 10px;">
+        <i class="anticon"
+           [class.anticon-menu-unfold]="isCollapsed"
+           [class.anticon-menu-fold]="!isCollapsed">
+        </i>
+      </button>
+      <ul nz-menu [nzMode]="'inline'" nzTheme='dark' [nzInlineCollapsed]="isCollapsed">
+        <li nz-submenu *ngFor="let one of webNav">
+          <span title>
+            <i class="anticon" [ngClass]="[one.icon]"></i>
+            <span>{{one.title}}</span>
+          </span>
+          <ul>
+            <li nz-menu-item *ngFor="let two of one.children">
+              <a routerLink="{{two.path}}">{{two.title}}</a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="web-main-container">
+    <router-outlet></router-outlet>
+  </div>
+</div>
+</div>

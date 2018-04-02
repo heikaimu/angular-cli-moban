@@ -1,0 +1,25 @@
+<div class="img-crop-container">
+  <div class="img-crop-wrapper">
+    <div class="left">
+      <div class="canvans-wrapper">
+        <img-cropper #cropper [image]="data" [settings]="cropperSettings"></img-cropper>
+      </div>
+      <div class="upload-btn">
+        <label for="custom_input" nz-button [nzType]="'primary'" style="line-height: 28px;">
+          选择图片
+          <input id="custom_input" type="file" (change)="fileChangeListener($event)" style="display: none">
+        </label>
+        <button nz-button [nzType]="'primary'" (click)="handleSure()">确定</button>
+        <button nz-button [nzType]="'primary'" (click)="handleCancel()">取消</button>
+      </div>
+    </div>
+    <div class="right">
+    <span class="result rounded" *ngIf="data.image" >
+      <img [src]="data.image" [width]="cropperSettings.croppedWidth" [height]="cropperSettings.croppedHeight">
+    </span>
+      <span class="result" *ngIf="data.image" >
+      <img [src]="data.image" [width]="cropperSettings.croppedWidth" [height]="cropperSettings.croppedHeight">
+    </span>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,65 @@
+<div class="table-container" [@flyIn]>
+  <div style="margin-bottom: 16px;">
+    <button nz-button [disabled]="_disabledButton" [nzType]="'danger'" [nzLoading]="_operating" (click)="_operateData()">批量删除</button>
+    <span style="margin-left: 8px;" *ngIf="_checkedNumber">选中了 {{_checkedNumber}} 条记录</span>
+  </div>
+  <nz-table #nzTable
+            [nzAjaxData]="_dataSet"
+            nzShowSizeChanger
+            [nzLoading]="_loading"
+            [nzTotal]="_total"
+            [(nzPageIndex)]="_current"
+            (nzPageIndexChange)="refreshData()"
+            [(nzPageSize)]="_pageSize"
+            (nzPageSizeChange)="refreshData(true)">
+    <thead nz-thead>
+    <tr>
+      <th nz-th nzCheckbox>
+        <label nz-checkbox [(ngModel)]="_allChecked" [nzIndeterminate]="_indeterminate" (ngModelChange)="_checkAll($event)">
+        </label>
+      </th>
+      <th nz-th>
+        <span>姓名</span>
+        <nz-table-sort (nzValueChange)="sort($event)"></nz-table-sort>
+      </th>
+      <th nz-th>
+        <span>性别</span>
+        <nz-dropdown [nzTrigger]="'click'">
+          <i class="anticon anticon-filter" nz-dropdown></i>
+          <ul nz-menu>
+            <li nz-menu-item *ngFor="let filter of _filterGender">
+              <label nz-checkbox [(ngModel)]="filter.value">
+                <span>{{filter.name}}</span>
+              </label>
+            </li>
+          </ul>
+          <div nz-table-filter>
+            <span nz-table-filter-confirm (click)="refreshData(true)">OK</span>
+            <span nz-table-filter-clear (click)="reset()">Reset</span>
+          </div>
+        </nz-dropdown>
+      </th>
+      <th nz-th><span>邮箱</span></th>
+      <th nz-th><span>操作</span></th>
+    </tr>
+    </thead>
+    <tbody nz-tbody>
+    <tr nz-tbody-tr *ngFor="let data of nzTable.data">
+      <td nz-td nzCheckbox>
+        <label nz-checkbox [(ngModel)]="data.checked" (ngModelChange)="_refreshStatus($event)">
+        </label>
+      </td>
+      <td nz-td>
+        <a>{{data.name.first}} {{data.name.last}}</a>
+      </td>
+      <td nz-td>{{data.gender=='male'?'男':'女'}}</td>
+      <td nz-td>{{data.email}}</td>
+      <td nz-td>
+        <span>
+          <a href="#">删除</a>
+        </span>
+      </td>
+    </tr>
+    </tbody>
+  </nz-table>
+</div>

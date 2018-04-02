@@ -1,0 +1,59 @@
+{
+  "webNav": [{
+    "title": "功能块",
+    "icon": "anticon-setting",
+    "open": true,
+    "children": [{
+      "title": "统计图",
+      "path": "/home/com/echart"
+    },
+      {
+        "title": "图片裁剪",
+        "path": "/home/com/img_crop"
+      },
+      {
+        "title": "富文本",
+        "path": "/home/com/editor"
+      },
+      {
+        "title": "带其他表单的富文本",
+        "path": "/home/com/editor_form"
+      },
+      {
+        "title": "表格",
+        "path": "/home/com/table"
+      }
+    ]
+  },
+    {
+      "title": "高德地图",
+      "icon": "anticon-user",
+      "open": true,
+      "children": [
+        {
+          "title": "最基础版",
+          "path": "/home/map/basic"
+        },
+        {
+          "title": "点位集合",
+          "path": "/home/map/points"
+        }
+      ]
+    },
+    {
+      "title": "用户",
+      "icon": "anticon-user",
+      "open": true,
+      "children": [
+        {
+          "title": "找回密码",
+          "path": "/home/user/find_password"
+        },
+        {
+          "title": "修改头像",
+          "path": "/home/user/update_avatar"
+        }
+      ]
+    }
+  ]
+}

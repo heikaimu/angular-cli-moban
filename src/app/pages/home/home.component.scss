@@ -1,0 +1,62 @@
+$headHeight: 60px;
+$headBg: deepskyblue;
+$barWidth: 240px;
+$barBg: #333;
+$mainPadding: 20px;
+$mainBg: #f2f2f2;
+$fontLarge: 18px;
+
+.web-header{
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  height: $headHeight;
+  background: $headBg;
+  display: flex;
+  .header-left{
+    height: 100%;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    padding: 0 $mainPadding;
+    .logo{
+      color: #fff;
+      font-size: $fontLarge;
+    }
+  }
+  .header-right{
+    height: 100%;
+    flex: 1;
+    padding: 0 $mainPadding;
+    display: flex;
+    align-items: center;
+    flex-direction: row-reverse;
+    .ant-dropdown-link{
+      color: #fff;
+    }
+  }
+}
+
+.slide-bar-main-container{
+  position: fixed;
+  left: 0;
+  top: $headHeight;
+  right: 0;
+  bottom: 0;
+  display: flex;
+}
+
+.web-slide-bar{
+  height: 100%;
+  background: $barBg;
+}
+
+.web-main-container{
+  height: 100%;
+  flex: 1;
+  overflow-y: auto;
+  padding: $mainPadding;
+  background: $mainBg;
+}
+

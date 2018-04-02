@@ -1,0 +1,10 @@
+<div [@flyIn]>
+  <a href="https://github.com/jdcontra/contra-ngx-img-cropper">ng2-img-cropper</a>
+  <p>npm i ng2-img-cropper --save</p>
+  <img src="{{imgSrc}}" alt="">
+  <button (click)="openCrop()">点我选图片</button>
+  <app-my-img-crop *ngIf="isShowCrop"
+                   (changeImg)="changeImg($event)"
+                   (closeCrop)="closeCrop($event)"
+  ></app-my-img-crop>
+</div>

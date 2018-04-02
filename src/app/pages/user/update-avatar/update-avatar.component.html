@@ -1,0 +1,15 @@
+<div class="update-avatar-container" [@flyIn]>
+  <div class="img-wrapper">
+    <img src="{{imgSrc}}" alt="">
+  </div>
+  <button nz-button [nzType]="'default'" (click)="openCrop()">
+    <span>点我选图片</span>
+  </button>
+  <button nz-button [nzType]="'primary'" (click)="saveAvatar()">
+    <span>保存头像</span>
+  </button>
+  <app-my-img-crop *ngIf="isShowCrop"
+                   (changeImg)="changeImg($event)"
+                   (closeCrop)="closeCrop($event)"
+  ></app-my-img-crop>
+</div>

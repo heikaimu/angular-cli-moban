@@ -1,0 +1,7 @@
+<quill-editor
+  [style]="{height: '400px'}"
+  #editor
+  [modules]="modules"
+  [(ngModel)]="content"
+  (onContentChanged)="logChange($event)"
+></quill-editor>
